@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
 import Body from "./components/Body/body";
 import Footer from "./components/Footer/footer";
 import Header from "./components/Header/header";
@@ -7,10 +8,12 @@ import Menu from "./components/Menu/menu";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Header></Header>
-    <Menu></Menu>
-    <Body></Body>
-    <Footer></Footer>
+    <BrowserRouter>
+      <Header></Header>
+      <Menu></Menu>
+      <Body></Body>
+      <Footer></Footer>
+    </BrowserRouter>
   </React.StrictMode>,
 
   document.getElementById("root")
