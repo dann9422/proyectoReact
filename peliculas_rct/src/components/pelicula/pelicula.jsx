@@ -1,12 +1,49 @@
-import React from "react";
+import React, { useState, useRef } from "react";
 
-const Pelicula = (props) => {
+const Pelicula = ({ datos }) => {
+  const [botones, setBotones] = useState("");
+  const favorito = useRef();
+
+  const setFavoritos = () => {
+    favorito.current.style.backgroundColor = "green";
+  };
   return (
     <>
-      <div>{props.datos.titulo}</div>
-      <div>{props.datos.genero}</div>
-      <div>{props.datos.director}</div>
-      <div>{props.datos.anio}</div>
+      <div>
+        <button
+          ref={favorito}
+          style={{ backgroundColor: "yellow" }}
+          onClick={() => {
+            setFavoritos();
+          }}
+        >
+          Favorito
+        </button>
+      </div>
+      <div>{datos.titulo}</div>
+      <div>{datos.genero}</div>
+      <div>{datos.director}</div>
+      <div>{datos.anio}</div>
+      <hr />
+      <div>
+        <button
+          disabled={botones}
+          onClick={() => {
+            setBotones("disabled");
+            alert("Has comprado esta pelicula!");
+          }}
+        >
+          Comprar
+        </button>
+        <button
+          disabled={botones}
+          onClick={() => {
+            setBotones("disabled");
+          }}
+        >
+          Agregar al carrito
+        </button>
+      </div>
       <hr />
     </>
   );
