@@ -1,0 +1,20 @@
+html,
+body {
+  font-family: Roboto;
+  font-size: 12px;
+  background-color: black;
+  color: #fff;
+  margin: 0px;
+}
+section,
+nav {
+  margin: 20px;
+}
+h2 {
+  color: chocolate;
+}
+hr {
+  height: 1px;
+  border-width: 0;
+  background-color: aliceblue;
+}

@@ -5,6 +5,7 @@ import Body from "./components/Body/body";
 import Footer from "./components/Footer/footer";
 import Header from "./components/Header/header";
 import Menu from "./components/Menu/menu";
+import "./index.css";
 
 ReactDOM.render(
   <React.StrictMode>

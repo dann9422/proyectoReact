@@ -8,12 +8,14 @@ import Buscar from "../pelicula/buscar";
 const Body = () => {
   return (
     <div>
-      <Route path="/" exact component={Peliculas}></Route>
-      <Route path="/Peliculas" exact component={Peliculas}></Route>
-      <Route path="/favoritos" exact component={Favorito}></Route>
-      <Route path="/carrito" exact component={Carrito}></Route>
-      <Route path="/destacadas" exact component={Destacadas}></Route>
-      <Route path="/buscar" exact component={Buscar}></Route>
+      <section>
+        <Route path="/" exact component={Peliculas}></Route>
+        <Route path="/Peliculas" exact component={Peliculas}></Route>
+        <Route path="/favoritos" exact component={Favorito}></Route>
+        <Route path="/carrito" exact component={Carrito}></Route>
+        <Route path="/destacadas" exact component={Destacadas}></Route>
+        <Route path="/buscar" exact component={Buscar}></Route>
+      </section>
     </div>
   );
 };
