@@ -20,7 +20,7 @@ const Peliculas = () => {
     {
       titulo: "Avengers",
       genero: "accion",
-      director: "john wig",
+      director: "john wig"
       anio: "2020",
     },
   ];*/
