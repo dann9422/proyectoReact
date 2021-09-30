@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import Pelicula from "./pelicula";
 
 const Peliculas = () => {
-  const peliculas = [
+  const [peliculas, setPeliculas] = useState([]);
+
+  /* const peliculas = [
     {
       titulo: "terminator",
       genero: "accion",
@@ -21,13 +23,19 @@ const Peliculas = () => {
       director: "john wig",
       anio: "2020",
     },
-  ];
+  ];*/
+
+  const cargarPeliculas = () => {
+    fetch("http://localhost:5000/api/Pelicula")
+      .then((response) => response.json())
+      .then((data) => setPeliculas(data));
+  };
   return (
     <>
       <div>
         <h2>Peliculas</h2>
+        <button onClick={() => cargarPeliculas()}>Cargar peliculas</button>
       </div>
-      <div>peliculas contenido</div>
       {peliculas.map((pelicula) => (
         <Pelicula datos={pelicula}></Pelicula>
       ))}
