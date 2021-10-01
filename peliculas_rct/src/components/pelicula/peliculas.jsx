@@ -1,34 +1,16 @@
 import React, { useState } from "react";
 import Pelicula from "./pelicula";
+import { obtenerPeliculas } from "../Services/peliculasServices";
 
 const Peliculas = () => {
   const [peliculas, setPeliculas] = useState([]);
 
-  /* const peliculas = [
-    {
-      titulo: "terminator",
-      genero: "accion",
-      director: "james cameron",
-      anio: "1999",
-    },
-    {
-      titulo: "John wick",
-      genero: "accion",
-      director: "james cameron",
-      anio: "2010",
-    },
-    {
-      titulo: "Avengers",
-      genero: "accion",
-      director: "john wig"
-      anio: "2020",
-    },
-  ];*/
-
-  const cargarPeliculas = () => {
-    fetch("http://localhost:5000/api/Pelicula")
-      .then((response) => response.json())
-      .then((data) => setPeliculas(data));
+  const cargarPeliculas = async () => {
+    const { data: peliculas } = await obtenerPeliculas();
+    setPeliculas(peliculas);
+    // fetch("http://localhost:5000/api/Pelicula")
+    //   .then((response) => response.json())
+    //   .then((data) => setPeliculas(data));
   };
   return (
     <>
@@ -37,7 +19,7 @@ const Peliculas = () => {
         <button onClick={() => cargarPeliculas()}>Cargar peliculas</button>
       </div>
       {peliculas.map((pelicula) => (
-        <Pelicula datos={pelicula}></Pelicula>
+        <Pelicula datos={pelicula} key={pelicula.idPelicula}></Pelicula>
       ))}
     </>
   );
