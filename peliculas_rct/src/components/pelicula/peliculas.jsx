@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Pelicula from "./pelicula";
 import { obtenerPeliculas } from "../Services/peliculasServices";
-
+import Grid from "@material-ui/core/Grid";
 const Peliculas = () => {
   const [peliculas, setPeliculas] = useState([]);
 
@@ -18,9 +18,11 @@ const Peliculas = () => {
         <h2>Peliculas</h2>
         <button onClick={() => cargarPeliculas()}>Cargar peliculas</button>
       </div>
-      {peliculas.map((pelicula) => (
-        <Pelicula datos={pelicula} key={pelicula.idPelicula}></Pelicula>
-      ))}
+      <Grid container spacing={2}>
+        {peliculas.map((pelicula) => (
+          <Pelicula datos={pelicula} key={pelicula.idPelicula}></Pelicula>
+        ))}
+      </Grid>
     </>
   );
 };

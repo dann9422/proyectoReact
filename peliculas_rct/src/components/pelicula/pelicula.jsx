@@ -1,4 +1,9 @@
 import React, { useState, useRef } from "react";
+import Button from "@material-ui/core/Button";
+import Paper from "@material-ui/core/Paper"; // coloca en dise;o como tarjeta
+import Grid from "@material-ui/core/Grid";
+import Icon from "@material-ui/core/Icon";
+import Rating from "@material-ui/lab/Rating";
 
 const Pelicula = ({ datos }) => {
   const [botones, setBotones] = useState("");
@@ -9,42 +14,47 @@ const Pelicula = ({ datos }) => {
   };
   return (
     <>
-      <div>
-        <button
-          ref={favorito}
-          style={{ backgroundColor: "yellow" }}
-          onClick={() => {
-            setFavoritos();
-          }}
-        >
-          Favorito
-        </button>
-      </div>
-      <div>{datos.titulo}</div>
-      <div>{datos.genero}</div>
-      <div>{datos.director}</div>
-      <div>{datos.anio}</div>
-      <hr />
-      <div>
-        <button
-          disabled={botones}
-          onClick={() => {
-            setBotones("disabled");
-            alert("Has comprado esta pelicula!");
-          }}
-        >
-          Comprar
-        </button>
-        <button
-          disabled={botones}
-          onClick={() => {
-            setBotones("disabled");
-          }}
-        >
-          Agregar al carrito
-        </button>
-      </div>
-      <hr />
+      <Grid container item xs={12} sm={4} lg={3}>
+        <Paper style={{ padding: 5, textAlign: "center" }}>
+          <Icon color={"disabled"} style={{ cursor: "pointer" }}>
+            favorite
+          </Icon>
+          <div>
+            <img width={200} src={datos.portada}></img>
+          </div>
+          <div>
+            <Rating value={datos.estrellas} readOnly />
+          </div>
+
+          <h2>{datos.titulo}</h2>
+          <div>{datos.sinopsis}</div>
+          <br />
+          <div>{datos.genero}</div>
+          <div>{datos.director}</div>
+          <div>{datos.anio}</div>
+          <hr />
+          <div>
+            <button
+              disabled={botones}
+              onClick={() => {
+                setBotones("disabled");
+                alert("Has comprado esta pelicula!");
+              }}
+            >
+              Comprar
+            </button>
+            <button
+              disabled={botones}
+              onClick={() => {
+                setBotones("disabled");
+              }}
+            >
+              Agregar al carrito
+            </button>
+          </div>
+          <hr />
+        </Paper>
+      </Grid>
     </>
   );
 };
