@@ -29,12 +29,21 @@ const Pelicula = ({ datos }) => {
           <h2>{datos.titulo}</h2>
           <div>{datos.sinopsis}</div>
           <br />
-          <div>{datos.genero}</div>
-          <div>{datos.director}</div>
-          <div>{datos.anio}</div>
+          <div>{`Genero:${datos.genero}`}</div>
+          <br />
+
+          <div>{`Director:${datos.director}`}</div>
+          <br />
+          <div>{`Año:${datos.anio}`}</div>
           <hr />
           <div>
-            <button
+            <b>{`Precio: $ ${datos.precio}`}</b>
+          </div>
+          <br />
+          <div>
+            <Button
+              variant="contained"
+              color="primary"
               disabled={botones}
               onClick={() => {
                 setBotones("disabled");
@@ -42,15 +51,18 @@ const Pelicula = ({ datos }) => {
               }}
             >
               Comprar
-            </button>
-            <button
+            </Button>
+            &nbsp;
+            <Button
+              variant="outlined"
+              color="secondary"
               disabled={botones}
               onClick={() => {
                 setBotones("disabled");
               }}
             >
               Agregar al carrito
-            </button>
+            </Button>
           </div>
           <hr />
         </Paper>

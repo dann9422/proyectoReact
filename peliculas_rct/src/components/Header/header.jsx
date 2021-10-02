@@ -14,7 +14,7 @@ const Header = () => {
         </Icon>
       </Link>
       <Badge badgeContent={2} color="secondary"></Badge>
-      <br />
+      &nbsp; &nbsp; &nbsp; &nbsp;
       <Link to="/carrito">
         <Icon color="action" fontSize="large">
           shopping_cart
