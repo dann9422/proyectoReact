@@ -14,7 +14,8 @@ const Body = () => {
         <Route path="/favoritos" exact component={Favorito}></Route>
         <Route path="/carrito" exact component={Carrito}></Route>
         <Route path="/destacadas" exact component={Destacadas}></Route>
-        <Route path="/buscar" exact component={Buscar}></Route>
+        <Route path="/buscar/:valor" exact component={Buscar}></Route>
+        <Route path="/buscar/" exact component={Peliculas}></Route>
       </section>
     </div>
   );

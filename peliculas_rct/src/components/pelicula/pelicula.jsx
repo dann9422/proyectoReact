@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useState, useRef } from "react";
 import Button from "@material-ui/core/Button";
 import Paper from "@material-ui/core/Paper"; // coloca en dise;o como tarjeta
@@ -9,7 +10,7 @@ const Pelicula = ({ datos }) => {
   const [botones, setBotones] = useState("");
   const favorito = useRef();
 
-  const setFavoritos = () => {
+  const setFavorito = () => {
     favorito.current.style.backgroundColor = "green";
   };
   return (
@@ -59,6 +60,7 @@ const Pelicula = ({ datos }) => {
               disabled={botones}
               onClick={() => {
                 setBotones("disabled");
+                setFavorito();
               }}
             >
               Agregar al carrito
